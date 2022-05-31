@@ -13,10 +13,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.image.*;
+import java.awt.print.PrinterException;
+import java.text.MessageFormat;
 
 public class posApplicationWindow {
 
@@ -66,10 +69,10 @@ public class posApplicationWindow {
 	}
 		jtxtTotal.setText(Double.toString(sum));
 	
-		//double cTotal = Double.parseDouble(jtxtTotal.getText());
+		double cTotal = Double.parseDouble(jtxtTotal.getText());
 		
-		//String iSubTotal = String.format("£ %.2f", cTotal);
-		//jtxtTotal.setText(iSubTotal);
+		String iSubTotal = String.format("£ %.2f", cTotal);
+		jtxtTotal.setText(iSubTotal);
 
 	}
 	//-----------------------------------------------------Functions End
@@ -166,6 +169,18 @@ public class posApplicationWindow {
 		jbtnPrint.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jbtnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				MessageFormat header = new MessageFormat("Receipt");
+				MessageFormat footer = new MessageFormat("Page(0, number, integer");
+				
+				try {
+					table.print(JTable.PrintMode.NORMAL,header,footer);
+				}
+				
+				catch(java.awt.print.PrinterException ex) {
+					System.err.format("No Printer found", ex.getMessage());
+				}
+			
 			}
 		});
 		jbtnPrint.setBounds(153, 69, 204, 49);
@@ -216,7 +231,7 @@ public class posApplicationWindow {
 				
 			}
 		});
-		jbtnApple.setIcon(new ImageIcon("C:\\Users\\Toufo\\Desktop\\Screenshot_20220112_020111.png"));
+		jbtnApple.setIcon(new ImageIcon("img/Apple-icon.png"));
 		jbtnApple.setFont(new Font("Tahoma", Font.BOLD, 40));
 		jbtnApple.setBounds(10, 10, 156, 141);
 		panel_2.add(jbtnApple);
@@ -231,10 +246,21 @@ public class posApplicationWindow {
 		btnNewButton_6_3_1.setBounds(10, 312, 156, 141);
 		panel_2.add(btnNewButton_6_3_1);
 		
-		JButton btnNewButton_6_1 = new JButton("");
-		btnNewButton_6_1.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_6_1.setBounds(176, 10, 156, 141);
-		panel_2.add(btnNewButton_6_1);
+		JButton jbtnBanana = new JButton("");
+		jbtnBanana.setIcon(new ImageIcon("img/bananas-icon.png"));
+		jbtnBanana.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double PriceOfItem = 0.47;
+				DefaultTableModel model =(DefaultTableModel)table.getModel();
+				model.addRow(new Object[] {"Banana",PriceOfItem});
+				AllCost();
+				
+			}
+		});
+		jbtnBanana.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnBanana.setBounds(176, 10, 156, 141);
+		panel_2.add(jbtnBanana);
 		
 		JButton btnNewButton_6_3_2 = new JButton("");
 		btnNewButton_6_3_2.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -272,6 +298,10 @@ public class posApplicationWindow {
 		panel_2.add(btnNewButton_6_3_4);
 		
 		JButton btnNewButton_6_3_1_3 = new JButton("");
+		btnNewButton_6_3_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_6_3_1_3.setFont(new Font("Tahoma", Font.BOLD, 40));
 		btnNewButton_6_3_1_3.setBounds(530, 312, 156, 141);
 		panel_2.add(btnNewButton_6_3_1_3);
