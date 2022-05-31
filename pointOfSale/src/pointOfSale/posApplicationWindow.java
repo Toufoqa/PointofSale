@@ -67,29 +67,34 @@ public class posApplicationWindow {
 		panel_3_2.setBounds(347, 26, 366, 187);
 		panel.add(panel_3_2);
 		
-		JButton btnNewButton_7 = new JButton("New button");
-		btnNewButton_7.setBounds(10, 10, 133, 78);
-		panel_3_2.add(btnNewButton_7);
+		JButton jbtnPay = new JButton("Pay");
+		jbtnPay.setFont(new Font("Tahoma", Font.BOLD, 25));
+		jbtnPay.setBounds(10, 10, 133, 78);
+		panel_3_2.add(jbtnPay);
 		
-		JButton btnNewButton_7_1 = new JButton("New button");
-		btnNewButton_7_1.setBounds(224, 128, 133, 49);
-		panel_3_2.add(btnNewButton_7_1);
+		JButton jbtnExit = new JButton("Exit");
+		jbtnExit.setFont(new Font("Tahoma", Font.BOLD, 25));
+		jbtnExit.setBounds(153, 128, 204, 49);
+		panel_3_2.add(jbtnExit);
 		
-		JButton btnNewButton_7_2 = new JButton("New button");
-		btnNewButton_7_2.setBounds(10, 98, 133, 79);
-		panel_3_2.add(btnNewButton_7_2);
+		JButton jbtnReset = new JButton("Reset");
+		jbtnReset.setFont(new Font("Tahoma", Font.BOLD, 25));
+		jbtnReset.setBounds(10, 98, 133, 79);
+		panel_3_2.add(jbtnReset);
 		
-		JButton btnNewButton_7_3 = new JButton("New button");
-		btnNewButton_7_3.setBounds(224, 10, 133, 49);
-		panel_3_2.add(btnNewButton_7_3);
+		JButton jbtnRemove = new JButton("Remove Item");
+		jbtnRemove.setFont(new Font("Tahoma", Font.BOLD, 25));
+		jbtnRemove.setBounds(153, 10, 204, 49);
+		panel_3_2.add(jbtnRemove);
 		
-		JButton btnNewButton_7_4 = new JButton("New button");
-		btnNewButton_7_4.addActionListener(new ActionListener() {
+		JButton jbtnPrint = new JButton("Print");
+		jbtnPrint.setFont(new Font("Tahoma", Font.BOLD, 25));
+		jbtnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_7_4.setBounds(224, 69, 133, 49);
-		panel_3_2.add(btnNewButton_7_4);
+		jbtnPrint.setBounds(153, 69, 204, 49);
+		panel_3_2.add(jbtnPrint);
 		
 		JPanel panel_3_2_1 = new JPanel();
 		panel_3_2_1.setLayout(null);
@@ -98,6 +103,7 @@ public class posApplicationWindow {
 		panel.add(panel_3_2_1);
 		
 		jtxtPayed = new JTextField();
+		jtxtPayed.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtPayed.setColumns(10);
 		jtxtPayed.setBounds(114, 27, 164, 47);
 		panel_3_2_1.add(jtxtPayed);
@@ -108,6 +114,7 @@ public class posApplicationWindow {
 		panel_3_2_1.add(lblNewLabel_2);
 		
 		jtxtChange = new JTextField();
+		jtxtChange.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtChange.setColumns(10);
 		jtxtChange.setBounds(114, 100, 164, 47);
 		panel_3_2_1.add(jtxtChange);
@@ -229,77 +236,249 @@ public class posApplicationWindow {
 		frame.getContentPane().add(panel_1_1);
 		panel_1_1.setLayout(null);
 		
-		JButton btnNewButton = new JButton("7");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton jbtnNum7 = new JButton("7");
+		jbtnNum7.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum7.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum7.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
 			}
 		});
-		btnNewButton.setBounds(10, 25, 95, 93);
-		panel_1_1.add(btnNewButton);
+		jbtnNum7.setBounds(10, 25, 95, 93);
+		panel_1_1.add(jbtnNum7);
 		
-		JButton btnNewButton_1 = new JButton("8");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_1.setBounds(115, 25, 95, 93);
-		panel_1_1.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("9");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_2.setBounds(220, 25, 95, 93);
-		panel_1_1.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("4");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton jbtnNum8 = new JButton("8");
+		jbtnNum8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum8.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum8.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_3.setBounds(10, 142, 95, 93);
-		panel_1_1.add(btnNewButton_3);
+		jbtnNum8.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum8.setBounds(115, 25, 95, 93);
+		panel_1_1.add(jbtnNum8);
 		
-		JButton btnNewButton_1_1 = new JButton("5");
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_1_1.setBounds(115, 142, 95, 93);
-		panel_1_1.add(btnNewButton_1_1);
-		
-		JButton btnNewButton_2_1 = new JButton("6");
-		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_2_1.setBounds(220, 142, 95, 93);
-		panel_1_1.add(btnNewButton_2_1);
-		
-		JButton btnNewButton_4 = new JButton("1");
-		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_4.setBounds(10, 258, 95, 93);
-		panel_1_1.add(btnNewButton_4);
-		
-		JButton btnNewButton_1_2 = new JButton("2");
-		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_1_2.setBounds(115, 258, 95, 93);
-		panel_1_1.add(btnNewButton_1_2);
-		
-		JButton btnNewButton_2_2 = new JButton("3");
-		btnNewButton_2_2.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_2_2.setBounds(220, 258, 95, 93);
-		panel_1_1.add(btnNewButton_2_2);
-		
-		JButton btnNewButton_5 = new JButton("0");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		JButton jbtnNum9 = new JButton("9");
+		jbtnNum9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum9.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum9.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
 			}
 		});
-		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_5.setBounds(10, 374, 95, 93);
-		panel_1_1.add(btnNewButton_5);
+		jbtnNum9.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum9.setBounds(220, 25, 95, 93);
+		panel_1_1.add(jbtnNum9);
 		
-		JButton btnNewButton_1_3 = new JButton(".");
-		btnNewButton_1_3.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_1_3.setBounds(115, 374, 95, 93);
-		panel_1_1.add(btnNewButton_1_3);
+		JButton jbtnNum4 = new JButton("4");
+		jbtnNum4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum4.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum4.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum4.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum4.setBounds(10, 142, 95, 93);
+		panel_1_1.add(jbtnNum4);
 		
-		JButton btnNewButton_2_3 = new JButton("C");
-		btnNewButton_2_3.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_2_3.setBounds(220, 374, 95, 93);
-		panel_1_1.add(btnNewButton_2_3);
+		JButton jbtnNum5 = new JButton("5");
+		jbtnNum5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum5.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum5.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum5.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum5.setBounds(115, 142, 95, 93);
+		panel_1_1.add(jbtnNum5);
+		
+		JButton jbtnNum6 = new JButton("6");
+		jbtnNum6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum6.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum6.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum6.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum6.setBounds(220, 142, 95, 93);
+		panel_1_1.add(jbtnNum6);
+		
+		JButton jbtnNum1 = new JButton("1");
+		jbtnNum1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum1.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum1.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum1.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum1.setBounds(10, 258, 95, 93);
+		panel_1_1.add(jbtnNum1);
+		
+		JButton jbtnNum2 = new JButton("2");
+		jbtnNum2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum2.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum2.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum2.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum2.setBounds(115, 258, 95, 93);
+		panel_1_1.add(jbtnNum2);
+		
+		JButton jbtnNum3 = new JButton("3");
+		jbtnNum3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum3.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum3.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+		
+			}
+		});
+		jbtnNum3.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum3.setBounds(220, 258, 95, 93);
+		panel_1_1.add(jbtnNum3);
+		
+		JButton jbtnNum0 = new JButton("0");
+		jbtnNum0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String Enternumber = jtxtPayed.getText();
+				
+				if (Enternumber == "") {
+					
+					jtxtPayed.setText(jbtnNum0.getText());
+				}
+				else {
+					Enternumber = jtxtPayed.getText()+ jbtnNum0.getText();
+					jtxtPayed.setText(Enternumber);
+				}
+				
+			
+			}
+		});
+		jbtnNum0.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnNum0.setBounds(10, 374, 95, 93);
+		panel_1_1.add(jbtnNum0);
+		
+		JButton jbtnPoint = new JButton(".");
+		jbtnPoint.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (! jtxtPayed.getText().contains(".")) {
+					
+					jtxtPayed.setText(jtxtPayed.getText() + jbtnPoint.getText());
+				}
+				
+			}
+		});
+		jbtnPoint.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnPoint.setBounds(115, 374, 95, 93);
+		panel_1_1.add(jbtnPoint);
+		
+		JButton jbtnClear = new JButton("C");
+		jbtnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				jtxtPayed.setText(null);
+				jtxtChange.setText(null);
+			}
+		});
+		jbtnClear.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnClear.setBounds(220, 374, 95, 93);
+		panel_1_1.add(jbtnClear);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(727, 10, 414, 431);
@@ -324,6 +503,7 @@ public class posApplicationWindow {
 		frame.getContentPane().add(panel_1);
 		
 		jtxtTotal = new JTextField();
+		jtxtTotal.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtTotal.setBounds(806, 451, 272, 47);
 		frame.getContentPane().add(jtxtTotal);
 		jtxtTotal.setColumns(10);
