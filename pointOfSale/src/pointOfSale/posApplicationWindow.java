@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class posApplicationWindow {
 
@@ -49,6 +52,52 @@ public class posApplicationWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
+	//----------------------------------------------------All cost Functions Start
+	
+	public void AllCost(){
+	
+	double sum = 0;
+	
+	for (int i=0; i < table.getRowCount(); i++) {
+		
+		sum = sum + Double.parseDouble((String) table.getValueAt(i, 1).toString());
+		
+	}
+		jtxtTotal.setText(Double.toString(sum));
+	
+		//double cTotal = Double.parseDouble(jtxtTotal.getText());
+		
+		//String iSubTotal = String.format("£ %.2f", cTotal);
+		//jtxtTotal.setText(iSubTotal);
+
+	}
+	//-----------------------------------------------------Functions End
+	
+	//----------------------------------------------------Change Functions Start
+	
+	public void Change(){
+		
+		double sum = 0;
+		double cash = Double.parseDouble(jtxtTotal.getSelectedText());
+		
+		for (int i=0; i < table.getRowCount(); i++) {
+			
+			sum = sum + Double.parseDouble((String) table.getValueAt(i, 1).toString());
+			
+		}
+		
+		double cChange= (cash-sum);
+		String ChangeGiven = String.format("£ %.2f", cChange);
+		jtxtChange.setText(ChangeGiven);
+	
+	}	
+		
+	//-----------------------------------------------------Functions End
+
+	
+	
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1500, 800);
@@ -68,6 +117,10 @@ public class posApplicationWindow {
 		panel.add(panel_3_2);
 		
 		JButton jbtnPay = new JButton("Pay");
+		jbtnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		jbtnPay.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jbtnPay.setBounds(10, 10, 133, 78);
 		panel_3_2.add(jbtnPay);
@@ -78,11 +131,33 @@ public class posApplicationWindow {
 		panel_3_2.add(jbtnExit);
 		
 		JButton jbtnReset = new JButton("Reset");
+		jbtnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				jtxtTotal.setText(null);
+				jtxtPayed.setText(null);
+				jtxtChange.setText(null);	
+				
+				DefaultTableModel RecordTable = (DefaultTableModel) table.getModel();
+				RecordTable.setRowCount(0);
+			}
+		});
 		jbtnReset.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jbtnReset.setBounds(10, 98, 133, 79);
 		panel_3_2.add(jbtnReset);
 		
 		JButton jbtnRemove = new JButton("Remove Item");
+		jbtnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				int RemoveItem = table.getSelectedRow();
+				if (RemoveItem >= 0) {
+					model.removeRow(RemoveItem);
+				}
+				AllCost();
+			}
+		});
 		jbtnRemove.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jbtnRemove.setBounds(153, 10, 204, 49);
 		panel_3_2.add(jbtnRemove);
@@ -99,29 +174,29 @@ public class posApplicationWindow {
 		JPanel panel_3_2_1 = new JPanel();
 		panel_3_2_1.setLayout(null);
 		panel_3_2_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel_3_2_1.setBounds(24, 26, 288, 187);
+		panel_3_2_1.setBounds(49, 26, 288, 187);
 		panel.add(panel_3_2_1);
 		
 		jtxtPayed = new JTextField();
 		jtxtPayed.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtPayed.setColumns(10);
-		jtxtPayed.setBounds(114, 27, 164, 47);
+		jtxtPayed.setBounds(114, 23, 164, 47);
 		panel_3_2_1.add(jtxtPayed);
 		
 		JLabel lblNewLabel_2 = new JLabel("Payed");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel_2.setBounds(10, 27, 119, 48);
+		lblNewLabel_2.setBounds(10, 22, 119, 48);
 		panel_3_2_1.add(lblNewLabel_2);
 		
 		jtxtChange = new JTextField();
 		jtxtChange.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtChange.setColumns(10);
-		jtxtChange.setBounds(114, 100, 164, 47);
+		jtxtChange.setBounds(114, 104, 164, 47);
 		panel_3_2_1.add(jtxtChange);
 		
 		JLabel lblChange = new JLabel("Change");
 		lblChange.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblChange.setBounds(10, 100, 119, 47);
+		lblChange.setBounds(10, 104, 119, 47);
 		panel_3_2_1.add(lblChange);
 		
 		JPanel panel_2 = new JPanel();
@@ -130,10 +205,21 @@ public class posApplicationWindow {
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		JButton btnNewButton_6 = new JButton("");
-		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 40));
-		btnNewButton_6.setBounds(10, 10, 156, 141);
-		panel_2.add(btnNewButton_6);
+		JButton jbtnApple = new JButton("");
+		jbtnApple.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double PriceOfItem = 0.40;
+				DefaultTableModel model =(DefaultTableModel)table.getModel();
+				model.addRow(new Object[] {"Apple",PriceOfItem});
+				AllCost();
+				
+			}
+		});
+		jbtnApple.setIcon(new ImageIcon("C:\\Users\\Toufo\\Desktop\\Screenshot_20220112_020111.png"));
+		jbtnApple.setFont(new Font("Tahoma", Font.BOLD, 40));
+		jbtnApple.setBounds(10, 10, 156, 141);
+		panel_2.add(jbtnApple);
 		
 		JButton btnNewButton_6_3 = new JButton("");
 		btnNewButton_6_3.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -487,7 +573,6 @@ public class posApplicationWindow {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
 			},
 			new String[] {
 				"Item", "Amount"
