@@ -20,6 +20,8 @@ import javax.swing.ImageIcon;
 import java.awt.image.*;
 import java.awt.print.PrinterException;
 import java.text.MessageFormat;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class posApplicationWindow {
 
@@ -195,24 +197,35 @@ public class posApplicationWindow {
 		jtxtPayed = new JTextField();
 		jtxtPayed.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtPayed.setColumns(10);
-		jtxtPayed.setBounds(114, 23, 164, 47);
+		jtxtPayed.setBounds(114, 73, 164, 47);
 		panel_3_2_1.add(jtxtPayed);
 		
 		JLabel lblNewLabel_2 = new JLabel("Payed");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel_2.setBounds(10, 22, 119, 48);
+		lblNewLabel_2.setBounds(10, 72, 119, 48);
 		panel_3_2_1.add(lblNewLabel_2);
 		
 		jtxtChange = new JTextField();
 		jtxtChange.setFont(new Font("Tahoma", Font.BOLD, 25));
 		jtxtChange.setColumns(10);
-		jtxtChange.setBounds(114, 104, 164, 47);
+		jtxtChange.setBounds(114, 130, 164, 47);
 		panel_3_2_1.add(jtxtChange);
 		
 		JLabel lblChange = new JLabel("Change");
 		lblChange.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblChange.setBounds(10, 104, 119, 47);
+		lblChange.setBounds(10, 130, 119, 47);
 		panel_3_2_1.add(lblChange);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.BOLD, 25));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cash", "Visa Card"}));
+		comboBox.setBounds(114, 16, 164, 47);
+		panel_3_2_1.add(comboBox);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Method");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblNewLabel_2_1.setBounds(10, 15, 119, 48);
+		panel_3_2_1.add(lblNewLabel_2_1);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
